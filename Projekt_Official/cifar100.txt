@@ -1,0 +1,108 @@
+📌 ETAP 0 – Definicja problemu i założeń projektu
+0.1 Cel projektu
+
+Cel główny projektu
+Celem projektu jest zaprojektowanie, wytrenowanie oraz porównanie różnych modeli sieci neuronowych przeznaczonych do zadania klasyfikacji obrazów na zbiorze CIFAR-100, zawierającym 100 klas obiektów.
+
+Cele szczegółowe:
+
+analiza i zrozumienie struktury zbioru CIFAR-100,
+
+przygotowanie danych do uczenia modeli sieci neuronowych,
+
+zaprojektowanie kilku architektur sieci konwolucyjnych (CNN),
+
+optymalizacja procesu uczenia poprzez dobór hiperparametrów,
+
+ocena jakości modeli przy użyciu odpowiednich metryk,
+
+porównanie skuteczności otrzymanych rozwiązań,
+
+identyfikacja wyzwań i ograniczeń.
+
+📌 Komentarz dla prowadzącego:
+Jasno określone cele pokazują, że projekt nie polega tylko na „wytrenowaniu modelu”, ale na procesie inżynierskim.
+
+0.2 Definicja problemu uczenia maszynowego
+
+Projekt rozwiązuje problem:
+
+uczenia nadzorowanego
+
+typu wieloklasowej klasyfikacji obrazów
+
+Dla każdej próbki wejściowej (obrazu RGB o rozmiarze 32×32 piksele) model ma przypisać jedną z 100 klas.
+
+Formalnie:
+
+wejście:
+
+𝑥
+∈
+𝑅
+32
+×
+32
+×
+3
+x∈R
+32×32×3
+
+wyjście:
+
+𝑦
+∈
+{
+1
+,
+2
+,
+…
+,
+100
+}
+y∈{1,2,…,100}
+0.3 Wybór narzędzi i technologii
+
+W projekcie wykorzystano:
+
+TensorFlow 2.x / Keras – implementacja i trenowanie sieci neuronowych,
+
+NumPy – operacje numeryczne,
+
+Matplotlib / Seaborn – wizualizacja danych i wyników,
+
+Scikit-learn – metryki i macierze pomyłek,
+
+Jupyter Notebook – forma dokumentacji i prezentacji projektu.
+
+📌 Dlaczego to ważne:
+Prowadzący widzi, że świadomie dobrałeś narzędzia, a nie użyłeś ich przypadkowo.
+
+📊 ETAP 1 – Zrozumienie i analiza danych (EDA)
+1.1 Opis zbioru danych CIFAR-100
+
+Zbiór CIFAR-100 jest publicznie dostępnym zestawem danych obrazowych, powszechnie wykorzystywanym w badaniach nad klasyfikacją obrazów.
+
+Charakterystyka zbioru:
+
+liczba klas: 100
+
+liczba obrazów treningowych: 50 000
+
+liczba obrazów testowych: 10 000
+
+rozmiar obrazów: 32 × 32 × 3 (RGB)
+
+liczba obrazów na klasę:
+
+trening: 500
+
+test: 100
+
+Każdy obraz posiada:
+
+etykietę szczegółową (fine label) – 100 klas,
+
+etykietę ogólną (coarse label) – 20 superklas
+(w projekcie wykorzystywane będą fine labels)
